@@ -17,13 +17,14 @@ import javax.swing.ImageIcon;
 public class Iniciar_Sesion extends javax.swing.JFrame {
     
     private InterfazPrincipal ventanap;
+    
     int n = 0;
     public void setVentanap(InterfazPrincipal ventanap) {
         this.ventanap = ventanap;
     }
     
+    public boolean valido = false;
     
-    public static boolean valido = false;
     public Iniciar_Sesion() {
         //System.exit (WIDTH);
         this.setUndecorated(true);        
@@ -1004,6 +1005,7 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
 //                dispose();
 //                valido = true;
 //                ventanap.habilitarMenu(valido);
+//                btn.
 //            } else {
 //                JOptionPane.showMessageDialog(null, "CORREO Y CONTRASEÑA INVALIDOS");
 //            }
@@ -1015,6 +1017,7 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
         
         valido = true;
         ventanap.habilitarMenu(valido);
+        
         
         dispose();
 //        

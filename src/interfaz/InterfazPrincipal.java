@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 
 public class InterfazPrincipal extends javax.swing.JFrame {
 
-    private boolean valido;
+    
    
     
     public InterfazPrincipal() {
@@ -19,8 +19,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         
         panelBtn1.setVisible(false);
         panelBtn2.setVisible(false);
-        panelBtn3.setVisible(false);
-        
+        panelBtn3.setVisible(false);       
         
     }
     
@@ -37,13 +36,9 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             
         }
         
-
+        
     }
-    
-    
 
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -445,18 +440,16 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResultadosMouseExited
 
     private void btnSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSesionMouseClicked
-        
+               
         Iniciar_Sesion newframe = new Iniciar_Sesion();
         newframe.setVisible(true);
 
-        newframe.setVentanap(this);
-     
+        newframe.setVentanap(this); 
+       
     }//GEN-LAST:event_btnSesionMouseClicked
 
     private void btnSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSesionMouseEntered
         jPanel3.setBackground(Color.decode("#9FDFBC"));
-
-        
     }//GEN-LAST:event_btnSesionMouseEntered
 
     private void btnSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSesionMouseExited
