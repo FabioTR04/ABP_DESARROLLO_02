@@ -1,5 +1,6 @@
 package Emisora;
 
+// comentario
 public class Preguntas {
     
     String [] preguntas = {
