@@ -1,15 +1,17 @@
 
 package interfaz;
 import FiveCodMover.FiveCodMoverJFrame;
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.Shape;
-import java.awt.Toolkit;
-import java.awt.geom.RoundRectangle2D;
-import javax.swing.JOptionPane;
-import java.sql.*;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import java.awt.*;
+import javax.swing.*;
+//import java.sql.*;
+//import java.awt.Color;
+//import java.awt.Image;
+//import java.awt.Shape;
+//import java.awt.Toolkit;
+//import java.awt.geom.RoundRectangle2D;
+//import javax.swing.Icon;
+//import javax.swing.ImageIcon;
+//import javax.swing.JOptionPane;
 //import java.awt.Desktop; // para el buscador de google
 
 //cambios
@@ -992,31 +994,31 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_contrasenaActionPerformed
 
     private void btnIniciarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseClicked
-        try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_sesion", "root", "");
-            PreparedStatement rst = cn.prepareStatement("Select CorreoUsuario, ContrasenaUsuario From usuarios Where CorreoUsuario = '" + txt_correo.getText().trim() + "' AND ContrasenaUsuario = '" + txt_contrasena.getText().trim() + "'");
-
-           
-            ResultSet st = rst.executeQuery();
-
-            if (st.next()) {
-
-                JOptionPane.showMessageDialog(null, "SESION INICIADA");
-                dispose();
-                valido = true;
-                ventanap.habilitarMenu(valido);
-                dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "CORREO Y CONTRASEÑA INVALIDOS");
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
-        }
+//        try {
+//            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_sesion", "root", "");
+//            PreparedStatement rst = cn.prepareStatement("Select CorreoUsuario, ContrasenaUsuario From usuarios Where CorreoUsuario = '" + txt_correo.getText().trim() + "' AND ContrasenaUsuario = '" + txt_contrasena.getText().trim() + "'");
+//
+//           
+//            ResultSet st = rst.executeQuery();
+//
+//            if (st.next()) {
+//
+//                JOptionPane.showMessageDialog(null, "SESION INICIADA");
+//                dispose();
+//                valido = true;
+//                ventanap.habilitarMenu(valido);
+//                dispose();
+//            } else {
+//                JOptionPane.showMessageDialog(null, "CORREO Y CONTRASEÑA INVALIDOS");
+//            }
+//
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+//        }
 
         
-//        valido = true;
-//        ventanap.habilitarMenu(valido);
+        valido = true;
+        ventanap.habilitarMenu(valido);
         
     
         
