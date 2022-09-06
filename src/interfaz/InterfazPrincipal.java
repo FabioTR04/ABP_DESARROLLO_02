@@ -33,7 +33,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             panelBtn2.setVisible(true);
             panelBtn3.setVisible(true);            
 //            btnSesion.setIcon(icono);
-
             btnSesion.setVisible(false);
             btnPerfil.setVisible(true);
             jLabel9.setText("PERFIL");
