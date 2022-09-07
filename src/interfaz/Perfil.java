@@ -13,9 +13,6 @@ import java.awt.Color;
  */
 public class Perfil extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Perfil
-     */
     public Perfil() {
         this.setUndecorated(true);        
         initComponents();
@@ -24,6 +21,12 @@ public class Perfil extends javax.swing.JFrame {
         this.setResizable(false);
         
     }
+    
+    public void tomardatos(String correoej){
+        
+        jLabel13.setText(correoej);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

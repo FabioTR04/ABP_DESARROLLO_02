@@ -1,29 +1,39 @@
 
 package interfaz;
 import FiveCodMover.FiveCodMoverJFrame;
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.Shape;
-import java.awt.Toolkit;
-import java.awt.geom.RoundRectangle2D;
-import javax.swing.JOptionPane;
+import java.awt.*;
+import javax.swing.*;
 import java.sql.*;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+//import java.awt.Color;
+//import java.awt.Image;
+//import java.awt.Shape;
+//import java.awt.Toolkit;
+//import java.awt.geom.RoundRectangle2D;
+//import javax.swing.Icon;
+//import javax.swing.ImageIcon;
+//import javax.swing.JOptionPane;
 //import java.awt.Desktop; // para el buscador de google
 
 //cambios
 
 public class Iniciar_Sesion extends javax.swing.JFrame {
     int n = 0;
+    public boolean valido = false;
+    public String correoej;
     
     private InterfazPrincipal ventanap;
+    private Perfil pasarcorreo;
     
     public void setVentanap(InterfazPrincipal ventanap) {
         this.ventanap = ventanap;
     }
     
-    public boolean valido = false;
+    public void setPasarcorreo(Perfil pasarcorreo){
+        this.pasarcorreo = pasarcorreo;
+    }
+    
+    
+    
     
     public Iniciar_Sesion() {
         //System.exit (WIDTH);
@@ -1013,14 +1023,11 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
 //        } catch (Exception e) {
 //            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
 //        }
-
-        
-        valido = true;
+        correoej = txt_correo.getText().trim();  
+        valido = true;                  
         ventanap.habilitarMenu(valido);
+//        pasarcorreo.tomardatos(correoej);
         dispose();
-        
-    
-        
         
     }//GEN-LAST:event_btnIniciarSesionMouseClicked
 

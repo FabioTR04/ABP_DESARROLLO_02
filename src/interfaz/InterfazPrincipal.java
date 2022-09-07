@@ -38,8 +38,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             jLabel9.setText("PERFIL");
             
         }
-        
-        
+           
     }
 
     /**
