@@ -3,7 +3,6 @@ package interfaz;
 import FiveCodMover.FiveCodMoverJFrame;
 import java.awt.*;
 import javax.swing.*;
-import java.sql.*;
 //import java.awt.Color;
 //import java.awt.Image;
 //import java.awt.Shape;
@@ -1026,8 +1025,12 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
         correoej = txt_correo.getText().trim();  
         valido = true;                  
         ventanap.habilitarMenu(valido);
+<<<<<<< HEAD
 //        pasarcorreo.tomardatos(correoej);
         dispose();
+=======
+
+>>>>>>> a15b886f386cb797aa21f420dc23e659d24b6255
         
     }//GEN-LAST:event_btnIniciarSesionMouseClicked
 
