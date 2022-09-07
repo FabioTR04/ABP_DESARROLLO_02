@@ -17,10 +17,10 @@ import javax.swing.*;
 //cambios
 
 public class Iniciar_Sesion extends javax.swing.JFrame {
+    int n = 0;
     
     private InterfazPrincipal ventanap;
     
-    int n = 0;
     public void setVentanap(InterfazPrincipal ventanap) {
         this.ventanap = ventanap;
     }
@@ -1019,6 +1019,7 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
         
         valido = true;
         ventanap.habilitarMenu(valido);
+
         
     
         

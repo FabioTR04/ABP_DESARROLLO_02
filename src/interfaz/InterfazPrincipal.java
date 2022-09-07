@@ -3,6 +3,7 @@ import FiveCodMover.FiveCodMoverJFrame;
 import java.awt.Color;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import interfaz.Iniciar_Sesion;
 //import javax.swing.JOptionPane;
 //import java.sql.*;
 
@@ -16,7 +17,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         this.setResizable(false);
         //icono del jframe
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconoencuesta.png")).getImage());
-        
+        btnPerfil.setVisible(false);
         panelBtn1.setVisible(false);
         panelBtn2.setVisible(false);
         panelBtn3.setVisible(false);       
@@ -30,9 +31,11 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         if(valido = true){
             panelBtn1.setVisible(true);
             panelBtn2.setVisible(true);
-            panelBtn3.setVisible(true);
-            
-            btnSesion.setIcon(icono);
+            panelBtn3.setVisible(true);            
+//            btnSesion.setIcon(icono);
+            btnSesion.setVisible(false);
+            btnPerfil.setVisible(true);
+            jLabel9.setText("PERFIL");
             
         }
         
@@ -59,10 +62,11 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         btnEncuestas = new javax.swing.JLabel();
         panelBtn3 = new javax.swing.JPanel();
         btnResultados = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        btnSesion = new javax.swing.JLabel();
         panelBtn4 = new javax.swing.JPanel();
         btnSalir = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        btnSesion = new javax.swing.JLabel();
+        btnPerfil = new javax.swing.JLabel();
         intercambio = new javax.swing.JPanel();
         e1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -117,9 +121,11 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         jPanel2.setBackground(new java.awt.Color(183, 228, 199));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         jLabel9.setText("SESION");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 21, -1, -1));
 
         panelBtn1.setBackground(new java.awt.Color(183, 228, 199));
 
@@ -127,7 +133,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         btnRegistros.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnRegistros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/registro (2).png"))); // NOI18N
         btnRegistros.setText("REGISTROS");
-        btnRegistros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistros.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnRegistros.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnRegistrosMouseClicked(evt);
@@ -151,6 +157,8 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             .addComponent(btnRegistros, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
 
+        jPanel2.add(panelBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 120, -1));
+
         panelBtn2.setBackground(new java.awt.Color(183, 228, 199));
 
         btnEncuestas.setBackground(new java.awt.Color(183, 228, 199));
@@ -158,7 +166,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         btnEncuestas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnEncuestas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lista-de-verificacion (3).png"))); // NOI18N
         btnEncuestas.setText("ENCUESTAS");
-        btnEncuestas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEncuestas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnEncuestas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnEncuestasMouseClicked(evt);
@@ -182,13 +190,15 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             .addComponent(btnEncuestas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
+        jPanel2.add(panelBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 259, 120, -1));
+
         panelBtn3.setBackground(new java.awt.Color(183, 228, 199));
 
         btnResultados.setFont(new java.awt.Font("DialogInput", 0, 11)); // NOI18N
         btnResultados.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnResultados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/informe-seo.png"))); // NOI18N
         btnResultados.setText("RESULTADOS");
-        btnResultados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnResultados.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnResultados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnResultadosMouseClicked(evt);
@@ -212,35 +222,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             .addComponent(btnResultados, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
 
-        jPanel3.setBackground(new java.awt.Color(183, 228, 199));
-
-        btnSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bloquear.png"))); // NOI18N
-        btnSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnSesion.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        btnSesion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSesionMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnSesionMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnSesionMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnSesion, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-        );
+        jPanel2.add(panelBtn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 305, 120, -1));
 
         panelBtn4.setBackground(new java.awt.Color(183, 228, 199));
 
@@ -248,7 +230,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         btnSalir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton.png"))); // NOI18N
         btnSalir.setText("  SALIR  ");
-        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSalir.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -273,41 +255,48 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             .addComponent(btnSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelBtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelBtn3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel9)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(panelBtn4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(panelBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(panelBtn4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jPanel2.add(panelBtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 392, 120, -1));
+
+        jPanel3.setBackground(new java.awt.Color(183, 228, 199));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bloquear.png"))); // NOI18N
+        btnSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSesion.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        btnSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSesionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSesionMouseExited(evt);
+            }
+        });
+        jPanel3.add(btnSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        btnPerfil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/perfil.png"))); // NOI18N
+        btnPerfil.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnPerfil.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPerfil.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        btnPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPerfilMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnPerfilMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnPerfilMouseExited(evt);
+            }
+        });
+        jPanel3.add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_START);
 
@@ -356,16 +345,16 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                         .addGap(274, 274, 274))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, intercambioLayout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addGap(251, 251, 251))))
+                        .addGap(250, 250, 250))))
         );
         intercambioLayout.setVerticalGroup(
             intercambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(intercambioLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(e1)
-                .addGap(56, 56, 56)
+                .addGap(41, 41, 41)
                 .addComponent(jLabel7)
-                .addGap(31, 31, 31)
+                .addGap(46, 46, 46)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
@@ -440,7 +429,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResultadosMouseExited
 
     private void btnSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSesionMouseClicked
-               
+ 
         Iniciar_Sesion newframe = new Iniciar_Sesion();
         newframe.setVisible(true);
 
@@ -475,6 +464,19 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
         FiveCodMoverJFrame.MouseDraggedFrame(evt,this);
     }//GEN-LAST:event_formMouseDragged
+
+    private void btnPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPerfilMouseClicked
+        Perfil newframe = new Perfil();
+        newframe.setVisible(true);      
+    }//GEN-LAST:event_btnPerfilMouseClicked
+
+    private void btnPerfilMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPerfilMouseEntered
+        jPanel3.setBackground(Color.decode("#9FDFBC"));
+    }//GEN-LAST:event_btnPerfilMouseEntered
+
+    private void btnPerfilMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPerfilMouseExited
+        jPanel3.setBackground(Color.decode("#B7E4C7"));
+    }//GEN-LAST:event_btnPerfilMouseExited
 
     /**
      * @param args the command line arguments
@@ -513,6 +515,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnEncuestas;
+    private javax.swing.JLabel btnPerfil;
     private javax.swing.JLabel btnRegistros;
     private javax.swing.JLabel btnResultados;
     private javax.swing.JLabel btnSalir;
