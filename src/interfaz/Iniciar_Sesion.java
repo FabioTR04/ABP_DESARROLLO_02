@@ -1022,9 +1022,11 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
 //        } catch (Exception e) {
 //            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
 //        }
-        correoej = txt_correo.getText().trim();  
+
+        //05
         valido = true;                  
         ventanap.habilitarMenu(valido);
+        dispose();
         
     }//GEN-LAST:event_btnIniciarSesionMouseClicked
 
