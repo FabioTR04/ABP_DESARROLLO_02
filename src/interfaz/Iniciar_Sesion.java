@@ -1,15 +1,17 @@
 
 package interfaz;
 import FiveCodMover.FiveCodMoverJFrame;
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.Shape;
-import java.awt.Toolkit;
-import java.awt.geom.RoundRectangle2D;
-import javax.swing.JOptionPane;
-import java.sql.*;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import java.awt.*;
+import javax.swing.*;
+//import java.sql.*;
+//import java.awt.Color;
+//import java.awt.Image;
+//import java.awt.Shape;
+//import java.awt.Toolkit;
+//import java.awt.geom.RoundRectangle2D;
+//import javax.swing.Icon;
+//import javax.swing.ImageIcon;
+//import javax.swing.JOptionPane;
 //import java.awt.Desktop; // para el buscador de google
 
 //cambios
@@ -1017,7 +1019,7 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
         
         valido = true;
         ventanap.habilitarMenu(valido);
-        dispose();
+
         
     
         
