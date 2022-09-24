@@ -1,7 +1,12 @@
 package interfaz;
 
+import Emisora.Radios;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.Set;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -236,10 +241,12 @@ public class panelRadios extends javax.swing.JPanel {
 
     private void txtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseClicked
         txtNombre.setText("");
+        txtNombre.setForeground(Color.black);
     }//GEN-LAST:event_txtNombreMouseClicked
 
     private void txtFrecuenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFrecuenciaMouseClicked
         txtFrecuencia.setText("");
+        txtFrecuencia.setForeground(Color.black);
     }//GEN-LAST:event_txtFrecuenciaMouseClicked
 
     private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
@@ -262,6 +269,33 @@ public class panelRadios extends javax.swing.JPanel {
     }//GEN-LAST:event_jcbTransmisionActionPerformed
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        //guarda los de los campos y combo box en las clases  
+        Radios guardar = new Radios();
+        guardar.setNombre(txtNombre.getText());
+        guardar.setFrecuencia(txtFrecuencia.getText().trim());
+        guardar.setTransmision((String) jcbTransmision.getSelectedItem());
+
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_sesion", "root", "");
+            PreparedStatement pst = cn.prepareStatement("insert into radios values(?,?,?)");
+
+            pst.setString(1, guardar.getNombre());
+            pst.setString(2, guardar.getFrecuencia());
+            pst.setString(3, guardar.getTransmision());
+            pst.executeUpdate();
+            
+            txtNombre.setForeground(Color.decode("#666666"));
+            txtNombre.setText("Nombre De Radio");
+            txtFrecuencia.setForeground(Color.decode("#666666"));
+            txtFrecuencia.setText("Frecuencia Transmite");
+            
+
+            JOptionPane.showMessageDialog(null, "REGISTRO EXITOSO");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+        }
+
         
     }//GEN-LAST:event_jLabel7MouseClicked
 

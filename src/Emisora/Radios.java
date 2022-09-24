@@ -29,7 +29,9 @@ public class Radios {
         this.transmision = transmision;
     }
 
-  
+    public void mostrarTransmicion(){
+        System.out.println("transmicion: " + getTransmision());
+    }
     
     
 }
