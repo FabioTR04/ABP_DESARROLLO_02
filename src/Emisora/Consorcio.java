@@ -8,19 +8,6 @@ public class Consorcio {
     private String companiaProductora;
     private String nombre;
 
-    public Consorcio() {
-    
-    }
-
-    public Consorcio(String nombre ,String nombreRadiosEmiten, String companiaProductora) {
-        this.nombre = nombre;
-        this.nombreRadiosEmiten = nombreRadiosEmiten;
-        this.companiaProductora = companiaProductora;
-    }
-    
-    
-    
-   
     public String getNombreRadiosEmiten() {
         return nombreRadiosEmiten;
     }
@@ -36,6 +23,14 @@ public class Consorcio {
     public void setCompaniaProductora(String companiaProductora) {
         this.companiaProductora = companiaProductora;
     }
-    
-    
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+      
 }

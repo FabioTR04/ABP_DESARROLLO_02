@@ -8,19 +8,6 @@ public class Programas {
     private String generoPrograma;
     private String radiosEmitan;
 
-    public Programas() {
-    }
-    public static void programa(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("- registrar programas -");
-        System.out.print("Introducir nombre de programa: ");
-        String nombrePrograma = sc.nextLine();
-        System.out.print("Introducir genero de programa: ");
-        String generoPrograma = sc.nextLine();
-        System.out.println("Introducir radios qen los que transmiten: ");
-        String radiosEmitan = sc.nextLine();
-        System.out.println("");
-    }
     public String getNombrePrograma() {
         return nombrePrograma;
     }
@@ -44,6 +31,8 @@ public class Programas {
     public void setRadiosEmitan(String radiosEmitan) {
         this.radiosEmitan = radiosEmitan;
     }
+
+    
     
     
 }

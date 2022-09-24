@@ -8,17 +8,11 @@ public class Trabajadores {
     private String nombre;
     private String tipoTrabajo;
 
-    public Trabajadores(String nombre, String cedulaIdentidad, String tipoTrabajo) {
-        this.nombre = nombre;
-        this.cedulaIdentidad = cedulaIdentidad;
-        this.tipoTrabajo = tipoTrabajo;
-    }
-    
-    public String getCedula_identidad() {
+    public String getCedulaIdentidad() {
         return cedulaIdentidad;
     }
 
-    public void setCedula_identidad(String cedula_identidad) {
+    public void setCedulaIdentidad(String cedulaIdentidad) {
         this.cedulaIdentidad = cedulaIdentidad;
     }
 
@@ -30,18 +24,14 @@ public class Trabajadores {
         this.nombre = nombre;
     }
 
-    public String getRol() {
+    public String getTipoTrabajo() {
         return tipoTrabajo;
     }
 
-    public void setRol(String rol) {
-        this.tipoTrabajo = rol;
+    public void setTipoTrabajo(String tipoTrabajo) {
+        this.tipoTrabajo = tipoTrabajo;
     }
 
-    @Override
-    public String toString() {
-        return "Trabajador [" + "cedulaIdentidad=" + cedulaIdentidad + ", nombre=" + nombre + ", tipoTrabajo=" + tipoTrabajo + ']';
-    }
     
     
     

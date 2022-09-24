@@ -274,14 +274,7 @@ public class panelRadios extends javax.swing.JPanel {
     }//GEN-LAST:event_jcbTransmisionActionPerformed
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        nombre = txtNombre.getText();
-        frecuencia = txtFrecuencia.getText();
-        tipoTransmision = (String) jcbTransmision.getSelectedItem();
-        radios.add(new Radios(nombre, frecuencia, tipoTransmision));
-        nombres.add(nombre);
-        radios.forEach(rad -> {
-            JOptionPane.showMessageDialog(null, rad);
-        });
+        
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered

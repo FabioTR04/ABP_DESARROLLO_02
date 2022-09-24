@@ -8,18 +8,6 @@ public class Encuestas {
     private int cantidad_rechazos;
     private int cantidad_indiferencias;
 
-    public Encuestas() {
-    }
-    
-    public static void datosEncuesta(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("== DATOS DE ENCUESTAS ==");
-        System.out.println("Cantidad total de encuestados: ");
-        System.out.println("Cantidad de aprobaciones: ");
-        System.out.println("Cantidad de rechazos: ");
-        System.out.println("Cantidad de indiferencias: ");
-    }
-
     public int getCantidad_total_Encuentados() {
         return cantidad_total_Encuentados;
     }
@@ -51,6 +39,7 @@ public class Encuestas {
     public void setCantidad_indiferencias(int cantidad_indiferencias) {
         this.cantidad_indiferencias = cantidad_indiferencias;
     }
+
     
     
            
