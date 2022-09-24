@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package interfaz;
 
-
-import Emisora.Radios;
 import java.awt.Color;
-import java.util.HashSet;
 import java.util.Set;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -17,9 +10,7 @@ import javax.swing.JOptionPane;
  */
 public class panelRadios extends javax.swing.JPanel {
     
-    String nombre, frecuencia, tipoTransmision;
-    Set<Radios> radios = new HashSet<Radios>();
-    private static Set<String> nombres = new HashSet<String>();
+    
     /**
      * Creates new form panelRadios
      */
@@ -28,9 +19,6 @@ public class panelRadios extends javax.swing.JPanel {
         setBounds(0,0,630,466);
     }
     
-    public static Set<String> enviarNombresRadios(){
-        return panelRadios.nombres;
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.

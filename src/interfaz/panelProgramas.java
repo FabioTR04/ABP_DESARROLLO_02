@@ -5,11 +5,8 @@
 package interfaz;
 
 import static interfaz.panelCompanies.enviarNombresComProd;
-import static interfaz.panelRadios.enviarNombresRadios;
+
 import java.awt.Color;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -18,10 +15,7 @@ import java.util.Set;
  */
 public class panelProgramas extends javax.swing.JPanel {
 
-    Set<String> nombresRadios = enviarNombresRadios();
-    Set<String> nombresCompanies = enviarNombresComProd();
-    
-    
+
     /**
      * Creates new form panelProgramas
      */
@@ -218,13 +212,7 @@ public class panelProgramas extends javax.swing.JPanel {
     }//GEN-LAST:event_jcbTipoProgramaMouseEntered
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        //        frecuencia = CampoRFrecuencia.getText();
-        //        nombre = CampoRNombre.getText();
-        //        transmision = (String)comboxTransmision.getSelectedItem();
-        //        Radios regCompany = new Radios(nombre, frecuencia, transmision);
-        //        radios.add(regCompany);
-        //        panelConsorcios panelCon = new panelConsorcios();
-        //        panelCon.setNombreRadios(""+CampoRNombre.getText());
+        
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
@@ -256,15 +244,11 @@ public class panelProgramas extends javax.swing.JPanel {
     }//GEN-LAST:event_jcbRadioActionPerformed
 
     private void jcbCompanyProductorasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbCompanyProductorasMouseClicked
-        for(String nom: nombresCompanies){
-            jcbCompanyProductoras.addItem(nom);
-        }
+        
     }//GEN-LAST:event_jcbCompanyProductorasMouseClicked
 
     private void jcbRadioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbRadioMouseClicked
-        for(String nom: nombresRadios){
-            jcbRadio.addItem(nom);
-        }
+       
     }//GEN-LAST:event_jcbRadioMouseClicked
 
 
