@@ -287,7 +287,7 @@ public class RegistrarLogin extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Solo se admiten de 8 a 15 caracteres", "CONTRASEÑA INCORRECTA", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 try {
-                    Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_sesion", "root", "");
+                    Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/programacionradial", "root", "");
                     PreparedStatement pst = cn.prepareStatement("insert into usuarios values(?,?,?,?,?)");
 
                     pst.setString(1, registrarNombre.getText().trim());

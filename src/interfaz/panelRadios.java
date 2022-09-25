@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.util.Set;
+import java.util.*;
 import javax.swing.JOptionPane;
 
 
@@ -276,7 +276,7 @@ public class panelRadios extends javax.swing.JPanel {
         guardar.setTransmision((String) jcbTransmision.getSelectedItem());
 
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_sesion", "root", "");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/programacionradial", "root", "");
             PreparedStatement pst = cn.prepareStatement("insert into radios values(?,?,?)");
 
             pst.setString(1, guardar.getNombre());

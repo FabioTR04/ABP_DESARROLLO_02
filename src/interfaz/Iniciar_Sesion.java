@@ -2,6 +2,7 @@
 package interfaz;
 import FiveCodMover.FiveCodMoverJFrame;
 import java.awt.*;
+import java.sql.*;
 import javax.swing.*;
 //import java.awt.Color;
 //import java.awt.Image;
@@ -1001,32 +1002,32 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_contrasenaActionPerformed
 
     private void btnIniciarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseClicked
-//        try {
-//            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_sesion", "root", "");
-//            PreparedStatement rst = cn.prepareStatement("Select CorreoUsuario, ContrasenaUsuario From usuarios Where CorreoUsuario = '" + txt_correo.getText().trim() + "' AND ContrasenaUsuario = '" + txt_contrasena.getText().trim() + "'");
-//
-//           
-//            ResultSet st = rst.executeQuery();
-//
-//            if (st.next()) {
-//
-//                JOptionPane.showMessageDialog(null, "SESION INICIADA");
-//                dispose();
-//                valido = true;
-//                ventanap.habilitarMenu(valido);
-//                dispose();
-//            } else {
-//                JOptionPane.showMessageDialog(null, "CORREO Y CONTRASEÑA INVALIDOS");
-//            }
-//
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
-//        }
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/programacionradial", "root", "");
+            PreparedStatement rst = cn.prepareStatement("Select correo, contraseña From usuarios Where correo = '" + txt_correo.getText().trim() + "' AND contraseña = '" + txt_contrasena.getText().trim() + "'");
+
+           
+            ResultSet st = rst.executeQuery();
+
+            if (st.next()) {
+
+                JOptionPane.showMessageDialog(null, "SESION INICIADA");
+                dispose();
+                valido = true;
+                ventanap.habilitarMenu(valido);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "CORREO Y CONTRASEÑA INVALIDOS");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+        }
 
         //05
-        valido = true;                  
-        ventanap.habilitarMenu(valido);
-        dispose();
+//        valido = true;                  
+//        ventanap.habilitarMenu(valido);
+//        dispose();
         
     }//GEN-LAST:event_btnIniciarSesionMouseClicked
 
