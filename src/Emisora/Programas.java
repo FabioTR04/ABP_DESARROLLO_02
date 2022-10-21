@@ -1,12 +1,11 @@
 package Emisora;
 
-import java.util.Scanner;
-
 public class Programas {
     
     private String nombrePrograma;
     private String generoPrograma;
     private String radiosEmitan;
+    private String tipoPrograma;
 
     public String getNombrePrograma() {
         return nombrePrograma;
@@ -32,7 +31,12 @@ public class Programas {
         this.radiosEmitan = radiosEmitan;
     }
 
-    
-    
+    public String getTipoPrograma() {
+        return tipoPrograma;
+    }
+
+    public void setTipoPrograma(String tipoPrograma) {
+        this.tipoPrograma = tipoPrograma;
+    }
     
 }

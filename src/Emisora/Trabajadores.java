@@ -4,15 +4,15 @@ import java.util.Scanner;
 
 public class Trabajadores {
     
-    private String cedulaIdentidad ;
+    private int cedulaIdentidad ;
     private String nombre;
     private String tipoTrabajo;
 
-    public String getCedulaIdentidad() {
+    public int getCedulaIdentidad() {
         return cedulaIdentidad;
     }
 
-    public void setCedulaIdentidad(String cedulaIdentidad) {
+    public void setCedulaIdentidad(int cedulaIdentidad) {
         this.cedulaIdentidad = cedulaIdentidad;
     }
 

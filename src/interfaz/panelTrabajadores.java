@@ -10,6 +10,9 @@ package interfaz;
  */
 import Emisora.Trabajadores;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
@@ -25,8 +28,8 @@ public class panelTrabajadores extends javax.swing.JPanel {
     public panelTrabajadores() {
         initComponents();
         setBounds(0,0,630,466);
-        rdbComercial.setEnabled(false);
-        rdbPeriodistica.setEnabled(false);
+        rdbComercial.setEnabled(true);
+        rdbPeriodistica.setEnabled(true);
         
     }
     
@@ -55,7 +58,6 @@ public class panelTrabajadores extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jbctrabajo = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(247, 251, 252));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -98,13 +100,15 @@ public class panelTrabajadores extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("DialogInput", 1, 14)); // NOI18N
         jLabel4.setText("Tipo de Trabajo");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 271, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
 
+        rdbPeriodistica.setBackground(new java.awt.Color(247, 251, 252));
         buttonGroup1.add(rdbPeriodistica);
         rdbPeriodistica.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
-        rdbPeriodistica.setText("Periodistica");
-        jPanel1.add(rdbPeriodistica, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, -1));
+        rdbPeriodistica.setText("Periodistico");
+        jPanel1.add(rdbPeriodistica, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
 
+        rdbComercial.setBackground(new java.awt.Color(247, 251, 252));
         buttonGroup1.add(rdbComercial);
         rdbComercial.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
         rdbComercial.setText("Comercial");
@@ -113,7 +117,7 @@ public class panelTrabajadores extends javax.swing.JPanel {
                 rdbComercialActionPerformed(evt);
             }
         });
-        jPanel1.add(rdbComercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, -1, -1));
+        jPanel1.add(rdbComercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, -1, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 161, 180, 10));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 256, 180, 10));
 
@@ -152,16 +156,6 @@ public class panelTrabajadores extends javax.swing.JPanel {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
 
-        jbctrabajo.setBackground(new java.awt.Color(247, 251, 252));
-        jbctrabajo.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
-        jbctrabajo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipos", "etc1", "etc2", "etc3" }));
-        jbctrabajo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbctrabajoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jbctrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 180, -1));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -174,12 +168,42 @@ public class panelTrabajadores extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rdbComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbComercialActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdbComercialActionPerformed
-
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        Trabajadores guardar = new Trabajadores();
 
+        guardar.setNombre(txtNombreTrabajador.getText());
+        guardar.setCedulaIdentidad(Integer.parseInt(txtCedulaIdentidad.getText()));
+        
+        if(rdbPeriodistica.isSelected()){
+            guardar.setTipoTrabajo("Periodistico");
+        }
+        
+        if(rdbComercial.isSelected()){
+            guardar.setTipoTrabajo("Comercial");
+        }
+        
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/programacionradial", "root", "");
+            PreparedStatement pst = cn.prepareStatement("insert into trabajadores values(?,?,?)");
+
+            pst.setString(1, guardar.getNombre());
+            pst.setInt(2, guardar.getCedulaIdentidad());
+            pst.setString(3, guardar.getTipoTrabajo());
+            pst.executeUpdate();
+            
+            txtNombreTrabajador.setForeground(Color.decode("#666666"));
+            txtNombreTrabajador.setText("Nombre");
+            txtCedulaIdentidad.setForeground(Color.decode("#666666"));
+            txtCedulaIdentidad.setText("Cedula");
+            
+
+            JOptionPane.showMessageDialog(null, "REGISTRO EXITOSO");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+        }
+
+        
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
@@ -190,10 +214,6 @@ public class panelTrabajadores extends javax.swing.JPanel {
         jPanel2.setBackground(Color.decode("#F7FBFC"));
     }//GEN-LAST:event_jLabel5MouseExited
 
-    private void jbctrabajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbctrabajoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbctrabajoActionPerformed
-
     private void txtNombreTrabajadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreTrabajadorMouseClicked
         txtNombreTrabajador.setText("");
     }//GEN-LAST:event_txtNombreTrabajadorMouseClicked
@@ -201,6 +221,10 @@ public class panelTrabajadores extends javax.swing.JPanel {
     private void txtCedulaIdentidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaIdentidadMouseClicked
         txtCedulaIdentidad.setText("");
     }//GEN-LAST:event_txtCedulaIdentidadMouseClicked
+
+    private void rdbComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbComercialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdbComercialActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -214,7 +238,6 @@ public class panelTrabajadores extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JComboBox<String> jbctrabajo;
     private javax.swing.JRadioButton rdbComercial;
     private javax.swing.JRadioButton rdbPeriodistica;
     private javax.swing.JTextField txtCedulaIdentidad;

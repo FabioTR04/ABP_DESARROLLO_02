@@ -4,10 +4,15 @@
  */
 package interfaz;
 
+import Emisora.Programas;
 import static interfaz.panelCompanies.enviarNombresComProd;
 
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.Set;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -82,7 +87,7 @@ public class panelProgramas extends javax.swing.JPanel {
 
         jcbTipoPrograma.setBackground(new java.awt.Color(247, 251, 252));
         jcbTipoPrograma.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jcbTipoPrograma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccionar --", "Variedades", "Periodistico", "Deportivo", "Musical", "Cultural" }));
+        jcbTipoPrograma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Variedades", "Periodistico", "Deportivo", "Musical", "Cultural" }));
         jcbTipoPrograma.setToolTipText("GENEROS");
         jcbTipoPrograma.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jcbTipoPrograma.setFocusable(false);
@@ -212,7 +217,30 @@ public class panelProgramas extends javax.swing.JPanel {
     }//GEN-LAST:event_jcbTipoProgramaMouseEntered
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        
+        Programas guardar = new Programas();
+        guardar.setNombrePrograma(CampoRNombre.getText());
+        guardar.setGeneroPrograma((String)jcbRadio.getSelectedItem());
+        guardar.setRadiosEmitan((String)jcbCompanyProductoras.getSelectedItem());
+        guardar.setTipoPrograma((String)jcbTipoPrograma.getSelectedItem());
+
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/programacionradial", "root", "");
+            PreparedStatement pst = cn.prepareStatement("insert into programas values(?,?,?,?)");
+
+            pst.setString(1, guardar.getNombrePrograma());
+            pst.setString(2, guardar.getGeneroPrograma());
+            pst.setString(3, guardar.getRadiosEmitan());
+            pst.setString(4, guardar.getTipoPrograma());
+            pst.executeUpdate();
+            
+            CampoRNombre.setForeground(Color.decode("#666666"));
+            CampoRNombre.setText("Nombre De Programa");                     
+
+            JOptionPane.showMessageDialog(null, "REGISTRO EXITOSO");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+        }
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
