@@ -4,7 +4,7 @@ public class CompanyProductora {
     
     private String numeroRFC;
     private String nombre;
-    private String telefono;
+    private int telefono;
 
     public String getNumeroRFC() {
         return numeroRFC;
@@ -22,14 +22,13 @@ public class CompanyProductora {
         this.nombre = nombre;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
-    
-    
+  
 
 }
