@@ -20,6 +20,7 @@ public class IniciarEncuesta extends javax.swing.JFrame {
 //        opc4.setText(a[3]);
 //
 //        opc1.requestFocus();
+
     }
     
     
