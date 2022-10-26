@@ -1,5 +1,6 @@
 
 package interfaz;
+import Emisora.Login;
 import FiveCodMover.FiveCodMoverJFrame;
 import java.awt.*;
 import java.sql.*;
@@ -1002,6 +1003,10 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_contrasenaActionPerformed
 
     private void btnIniciarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseClicked
+        Login l1 = new Login();
+        l1.setCorreo(txt_correo.getText());
+        
+        
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/programacionradial", "root", "");
             PreparedStatement rst = cn.prepareStatement("Select correo, contraseña From usuarios Where correo = '" + txt_correo.getText().trim() + "' AND contraseña = '" + txt_contrasena.getText().trim() + "'");

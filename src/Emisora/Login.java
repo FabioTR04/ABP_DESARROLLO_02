@@ -1,8 +1,5 @@
 package Emisora;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Login {
     
     private String correo;

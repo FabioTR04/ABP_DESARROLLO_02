@@ -1,9 +1,14 @@
 package interfaz;
+import Emisora.Login;
 import FiveCodMover.FiveCodMoverJFrame;
 import java.awt.Color;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import interfaz.Iniciar_Sesion;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
 //import javax.swing.JOptionPane;
 //import java.sql.*;
 
@@ -466,7 +471,22 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
     private void btnPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPerfilMouseClicked
         Perfil newframe = new Perfil();
-        newframe.setVisible(true);      
+        newframe.setVisible(true); 
+
+//        try {
+//            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/programacionradial", "root", "");
+//            PreparedStatement pst = cn.prepareStatement("select * from usuarios where correo = ?");
+//
+//            pst.setString(1, );
+//            
+//            pst.executeUpdate();
+//                                 
+//
+//            JOptionPane.showMessageDialog(null, "REGISTRO EXITOSO");
+//
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+//        }
     }//GEN-LAST:event_btnPerfilMouseClicked
 
     private void btnPerfilMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPerfilMouseEntered
