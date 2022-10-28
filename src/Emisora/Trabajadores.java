@@ -1,7 +1,5 @@
 package Emisora;
 
-import java.util.Scanner;
-
 public class Trabajadores {
     
     private int cedulaIdentidad ;
@@ -32,7 +30,5 @@ public class Trabajadores {
         this.tipoTrabajo = tipoTrabajo;
     }
 
-    
-    
     
 }

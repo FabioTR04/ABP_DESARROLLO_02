@@ -1029,7 +1029,6 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
         }
 
-        //05
 //        valido = true;                  
 //        ventanap.habilitarMenu(valido);
 //        dispose();

@@ -473,6 +473,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         Perfil newframe = new Perfil();
         newframe.setVisible(true); 
 
+        
 //        try {
 //            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/programacionradial", "root", "");
 //            PreparedStatement pst = cn.prepareStatement("select * from usuarios where correo = ?");

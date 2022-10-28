@@ -1,5 +1,10 @@
 package Emisora;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author USUARIO
@@ -43,6 +48,10 @@ public class perfil {
         this.correo = correo;
     }
     
+    
+    public void traerDatos(){
+       
+    }
     
     
 }
