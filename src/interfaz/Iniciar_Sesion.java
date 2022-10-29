@@ -4,6 +4,7 @@ import Emisora.Login;
 import FiveCodMover.FiveCodMoverJFrame;
 import java.awt.*;
 import java.sql.*;
+import java.util.HashMap;
 import javax.swing.*;
 //import java.awt.Color;
 //import java.awt.Image;
@@ -38,6 +39,7 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
     
     public Iniciar_Sesion() {
         //System.exit (WIDTH);
+        datos = new HashMap<>();
         this.setUndecorated(true);        
         initComponents();
         this.setLocationRelativeTo(null);
@@ -1005,21 +1007,21 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
     private void btnIniciarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseClicked
         Login l1 = new Login();
         l1.setCorreo(txt_correo.getText());
-        
-        
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/programacionradial", "root", "");
-            PreparedStatement rst = cn.prepareStatement("Select correo, contraseña From usuarios Where correo = '" + txt_correo.getText().trim() + "' AND contraseña = '" + txt_contrasena.getText().trim() + "'");
+            PreparedStatement rst = cn.prepareStatement("Select * From usuarios Where correo = '" + txt_correo.getText().trim() + "' AND contraseña = '" + txt_contrasena.getText().trim() + "'");
 
            
             ResultSet st = rst.executeQuery();
 
             if (st.next()) {
-
-                JOptionPane.showMessageDialog(null, "SESION INICIADA");
-                dispose();
+                datos.put("Name",st.getString("nombre"));
+                datos.put("LastName",st.getString("apellido"));
+                datos.put("Phono",st.getString("telefono"));
+                datos.put("Address",st.getString("correo"));
                 valido = true;
                 ventanap.habilitarMenu(valido);
+                JOptionPane.showMessageDialog(null, "SESION INICIADA");
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "CORREO Y CONTRASEÑA INVALIDOS");
@@ -1173,6 +1175,11 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
             }
         });
     }
+
+    public HashMap<String, String> getDatos() {
+        return datos;
+    }
+    private HashMap<String,String> datos;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnIniciarSesion;
     private javax.swing.JLabel btnRegistrarse;

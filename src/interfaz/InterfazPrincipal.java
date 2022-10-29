@@ -8,6 +8,7 @@ import interfaz.Iniciar_Sesion;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 //import javax.swing.JOptionPane;
 //import java.sql.*;
@@ -436,8 +437,8 @@ public class InterfazPrincipal extends javax.swing.JFrame {
  
         Iniciar_Sesion newframe = new Iniciar_Sesion();
         newframe.setVisible(true);
-
         newframe.setVentanap(this); 
+        datos = newframe.getDatos();
        
     }//GEN-LAST:event_btnSesionMouseClicked
 
@@ -470,24 +471,8 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseDragged
 
     private void btnPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPerfilMouseClicked
-        Perfil newframe = new Perfil();
+        Perfil newframe = new Perfil(datos);
         newframe.setVisible(true); 
-
-        
-//        try {
-//            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/programacionradial", "root", "");
-//            PreparedStatement pst = cn.prepareStatement("select * from usuarios where correo = ?");
-//
-//            pst.setString(1, );
-//            
-//            pst.executeUpdate();
-//                                 
-//
-//            JOptionPane.showMessageDialog(null, "REGISTRO EXITOSO");
-//
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
-//        }
     }//GEN-LAST:event_btnPerfilMouseClicked
 
     private void btnPerfilMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPerfilMouseEntered
@@ -532,7 +517,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             }
         });
     }
-
+    private HashMap<String,String> datos = new HashMap<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnEncuestas;
     private javax.swing.JLabel btnPerfil;
