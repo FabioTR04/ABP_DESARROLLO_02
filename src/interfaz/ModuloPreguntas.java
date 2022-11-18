@@ -100,13 +100,13 @@ public class ModuloPreguntas extends javax.swing.JPanel {
             }
         });
 
-        P1.setText("P1");
+        P1.setText("1 hora");
 
-        P2.setText("P2");
+        P2.setText("6 horas");
 
-        P3.setText("P3");
+        P3.setText("12 horas");
 
-        P4.setText("P4");
+        P4.setText("24 horas");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -192,15 +192,69 @@ public class ModuloPreguntas extends javax.swing.JPanel {
 
     private void btnAvanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvanzarActionPerformed
         Preguntas p2  = new Preguntas();
-        String[] vector = p2.llamadaVector();
-        
-        txt_pregunta.setText(""+vector[i]);
+//        String[] vector = p2.llamadaVector();
         i++;
+        if(i == 1){
+            txt_pregunta.setText(p2.getP2());
+            P1.setText(p2.getPr2a());
+            P2.setText(p2.getPr2b());
+            P3.setText(p2.getPr2c());
+            P4.setText(p2.getPr2d());
+        }
+        if(i == 2 ){
+            txt_pregunta.setText(p2.getP3());
+            P1.setText(p2.getPr3a());
+            P2.setText(p2.getPr3b());
+            P3.setText(p2.getPr3c());
+            P4.setText(p2.getPr3d());
+            
+            btnAvanzar.setEnabled(false);
+            
+        }
+        if(i>0){
+            btnRegresar.setEnabled(true);
+        }
+        if(i==0){
+            btnRegresar.setEnabled(false);
+        }
+     
+        
         
     }//GEN-LAST:event_btnAvanzarActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-
+        Preguntas p2 =new Preguntas();
+        i--;
+        
+        if(i==0){
+            txt_pregunta.setText(p2.getP1());
+            P1.setText(p2.getPr1a());
+            P2.setText(p2.getPr1b());
+            P3.setText(p2.getPr1c());
+            P4.setText(p2.getPr1d());
+        }
+        if(i == 1){
+            txt_pregunta.setText(p2.getP2());
+            P1.setText(p2.getPr2a());
+            P2.setText(p2.getPr2b());
+            P3.setText(p2.getPr2c());
+            P4.setText(p2.getPr2d());
+        }
+        if(i == 2 ){
+            txt_pregunta.setText(p2.getP3());
+            P1.setText(p2.getPr3a());
+            P2.setText(p2.getPr3b());
+            P3.setText(p2.getPr3c());
+            P4.setText(p2.getPr3d());
+                  
+        }
+       
+        if(i <= 1){
+            btnAvanzar.setEnabled(true);
+        }
+        if(i==0){
+            btnRegresar.setEnabled(false);
+        }
     }//GEN-LAST:event_btnRegresarActionPerformed
 
 

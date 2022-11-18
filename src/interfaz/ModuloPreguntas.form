@@ -228,22 +228,22 @@
         </Component>
         <Component class="javax.swing.JLabel" name="P1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="P1"/>
+            <Property name="text" type="java.lang.String" value="1 hora"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="P2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="P2"/>
+            <Property name="text" type="java.lang.String" value="6 horas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="P3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="P3"/>
+            <Property name="text" type="java.lang.String" value="12 horas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="P4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="P4"/>
+            <Property name="text" type="java.lang.String" value="24 horas"/>
           </Properties>
         </Component>
       </SubComponents>
