@@ -1007,33 +1007,33 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
     private void btnIniciarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseClicked
         Login l1 = new Login();
         l1.setCorreo(txt_correo.getText());
-        try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/programacionradial", "root", "");
-            PreparedStatement rst = cn.prepareStatement("Select * From usuarios Where correo = '" + txt_correo.getText().trim() + "' AND contraseña = '" + txt_contrasena.getText().trim() + "'");
+//        try {
+//            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/programacionradial", "root", "");
+//            PreparedStatement rst = cn.prepareStatement("Select * From usuarios Where correo = '" + txt_correo.getText().trim() + "' AND contraseña = '" + txt_contrasena.getText().trim() + "'");
+//
+//           
+//            ResultSet st = rst.executeQuery();
+//
+//            if (st.next()) {
+//                datos.put("Name",st.getString("nombre"));
+//                datos.put("LastName",st.getString("apellido"));
+//                datos.put("Phono",st.getString("telefono"));
+//                datos.put("Address",st.getString("correo"));
+//                valido = true;
+//                ventanap.habilitarMenu(valido);
+//                JOptionPane.showMessageDialog(null, "SESION INICIADA");
+//                dispose();
+//            } else {
+//                JOptionPane.showMessageDialog(null, "CORREO Y CONTRASEÑA INVALIDOS");
+//            }
+//
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+//        }
 
-           
-            ResultSet st = rst.executeQuery();
-
-            if (st.next()) {
-                datos.put("Name",st.getString("nombre"));
-                datos.put("LastName",st.getString("apellido"));
-                datos.put("Phono",st.getString("telefono"));
-                datos.put("Address",st.getString("correo"));
-                valido = true;
-                ventanap.habilitarMenu(valido);
-                JOptionPane.showMessageDialog(null, "SESION INICIADA");
-                dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "CORREO Y CONTRASEÑA INVALIDOS");
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
-        }
-
-//        valido = true;                  
-//        ventanap.habilitarMenu(valido);
-//        dispose();
+        valido = true;                  
+        ventanap.habilitarMenu(valido);
+        dispose();
         
     }//GEN-LAST:event_btnIniciarSesionMouseClicked
 

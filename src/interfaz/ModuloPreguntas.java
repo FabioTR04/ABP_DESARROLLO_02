@@ -12,26 +12,16 @@ import javax.swing.JOptionPane;
  *
  * @author USUARIO
  */
-public class InicioEncuesta extends javax.swing.JPanel {
-
-    int posicion = 0;
-    Respuestas r = new Respuestas();
-    Preguntas p = new Preguntas();
-    Object[] select = {"","","","","","","",""};
-    public InicioEncuesta() {
+public class ModuloPreguntas extends javax.swing.JPanel {
+    int i = 0;
+ 
+    public ModuloPreguntas() {
         initComponents();
-        setBounds(0,0,630,466);
-        question.setText(p.getPregunta(posicion));
-        String[] a = r.setRespuestas(posicion);
+        setBounds(0,0,630,466);        
         grupobtn.clearSelection(); // sirve para borrar las selecciones
-        opc1.setText(a[0]);
-        opc2.setText(a[1]);
-        opc3.setText(a[2]);
-        opc4.setText(a[3]);
-
-        opc1.requestFocus();
+    
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,10 +38,14 @@ public class InicioEncuesta extends javax.swing.JPanel {
         opc3 = new javax.swing.JRadioButton();
         opc4 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
-        question = new javax.swing.JLabel();
+        txt_pregunta = new javax.swing.JLabel();
         btnTerminar = new javax.swing.JButton();
         btnAvanzar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
+        P1 = new javax.swing.JLabel();
+        P2 = new javax.swing.JLabel();
+        P3 = new javax.swing.JLabel();
+        P4 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(247, 251, 252));
         jPanel1.setName(""); // NOI18N
@@ -59,28 +53,28 @@ public class InicioEncuesta extends javax.swing.JPanel {
         opc1.setBackground(new java.awt.Color(247, 251, 252));
         grupobtn.add(opc1);
         opc1.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
-        opc1.setText("Menos de una hora");
+        opc1.setText("A. ");
 
         opc2.setBackground(new java.awt.Color(247, 251, 252));
         grupobtn.add(opc2);
         opc2.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
-        opc2.setText("1 - 3 Horas");
+        opc2.setText("B. ");
 
         opc3.setBackground(new java.awt.Color(247, 251, 252));
         grupobtn.add(opc3);
         opc3.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
-        opc3.setText("4 - 6 Horas");
+        opc3.setText("C. ");
 
         opc4.setBackground(new java.awt.Color(247, 251, 252));
         grupobtn.add(opc4);
         opc4.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
-        opc4.setText("7 o mas horas semanales");
+        opc4.setText("D. ");
 
         jLabel1.setFont(new java.awt.Font("DialogInput", 1, 14)); // NOI18N
         jLabel1.setText("Modulo Preguntas");
 
-        question.setFont(new java.awt.Font("DialogInput", 2, 12)); // NOI18N
-        question.setText("¿pregunta?");
+        txt_pregunta.setFont(new java.awt.Font("DialogInput", 2, 12)); // NOI18N
+        txt_pregunta.setText("¿Cuantas horas semanales escucha la emisora?");
 
         btnTerminar.setFont(new java.awt.Font("DialogInput", 0, 11)); // NOI18N
         btnTerminar.setText("Terminar ");
@@ -106,6 +100,14 @@ public class InicioEncuesta extends javax.swing.JPanel {
             }
         });
 
+        P1.setText("P1");
+
+        P2.setText("P2");
+
+        P3.setText("P3");
+
+        P4.setText("P4");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -118,12 +120,19 @@ public class InicioEncuesta extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(question)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(opc3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(opc2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(opc1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(opc4)))))
+                            .addComponent(txt_pregunta)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(opc3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(opc2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(opc1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(opc4))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(P1)
+                                    .addComponent(P2)
+                                    .addComponent(P3)
+                                    .addComponent(P4))))))
                 .addContainerGap(251, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -140,15 +149,23 @@ public class InicioEncuesta extends javax.swing.JPanel {
                 .addGap(28, 28, 28)
                 .addComponent(jLabel1)
                 .addGap(66, 66, 66)
-                .addComponent(question)
+                .addComponent(txt_pregunta)
                 .addGap(40, 40, 40)
-                .addComponent(opc1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(opc1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(P1))
                 .addGap(18, 18, 18)
-                .addComponent(opc2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(opc2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(P2))
                 .addGap(18, 18, 18)
-                .addComponent(opc3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(opc3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(P3))
                 .addGap(18, 18, 18)
-                .addComponent(opc4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(opc4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(P4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTerminar)
@@ -174,51 +191,24 @@ public class InicioEncuesta extends javax.swing.JPanel {
     }//GEN-LAST:event_btnTerminarActionPerformed
 
     private void btnAvanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvanzarActionPerformed
-        if(posicion > 7){
-            btnTerminar.setEnabled(true);
-        }
-
-        if (posicion < 8) {
-            btnRegresar.setEnabled(true);
-            posicion++;
-            question.setText(p.getPregunta(posicion));
-            String[] a = r.setRespuestas(posicion);
-            grupobtn.clearSelection();
-            opc1.setText(a[0]);
-            opc2.setText(a[1]);
-            opc3.setText(a[2]);
-            opc4.setText(a[3]);
-
-            opc1.requestFocus();
-        }else{
-            Toolkit.getDefaultToolkit().beep();
-        }
+        Preguntas p2  = new Preguntas();
+        String[] vector = p2.llamadaVector();
+        
+        txt_pregunta.setText(""+vector[i]);
+        i++;
+        
     }//GEN-LAST:event_btnAvanzarActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        if (posicion == 0) {
-            btnRegresar.setEnabled(false);
 
-        }
-
-        if (posicion > -1) {
-            posicion--;
-            question.setText(p.getPregunta(posicion));
-            String[] a = r.setRespuestas(posicion);
-            grupobtn.clearSelection();
-            opc1.setText(a[0]);
-            opc2.setText(a[1]);
-            opc3.setText(a[2]);
-            opc4.setText(a[3]);
-
-            opc1.requestFocus();
-        }else{
-            Toolkit.getDefaultToolkit().beep();
-        }
     }//GEN-LAST:event_btnRegresarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel P1;
+    private javax.swing.JLabel P2;
+    private javax.swing.JLabel P3;
+    private javax.swing.JLabel P4;
     private javax.swing.JButton btnAvanzar;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnTerminar;
@@ -229,6 +219,6 @@ public class InicioEncuesta extends javax.swing.JPanel {
     private javax.swing.JRadioButton opc2;
     private javax.swing.JRadioButton opc3;
     private javax.swing.JRadioButton opc4;
-    private javax.swing.JLabel question;
+    private javax.swing.JLabel txt_pregunta;
     // End of variables declaration//GEN-END:variables
 }

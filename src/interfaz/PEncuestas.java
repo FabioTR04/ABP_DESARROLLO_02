@@ -119,7 +119,7 @@ public class PEncuestas extends javax.swing.JPanel {
         jpanelcambio.removeAll();
         jpanelcambio.updateUI();
         jpanelcambio.setLayout(null);
-        jpanelcambio.add(new InicioEncuesta());
+        jpanelcambio.add(new ModuloPreguntas());
         
     }//GEN-LAST:event_txtIniciarEncuestaMouseClicked
 
